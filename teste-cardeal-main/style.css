@@ -1,0 +1,46 @@
+.semestre{
+    cursor: pointer;
+    width: 390px;
+    background-color: blue;
+    color: yellow;
+    margin: 0;
+    margin: 0;
+}
+
+h1{
+    margin: 0;
+}
+.disciplinas{
+    width: 350px;
+    background-color: blue;
+    color: yellow;
+    margin: 0px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.semestre.active .disciplinas{
+    max-height: 300px;
+}
+
+.barra{
+    max-width: 100%;
+    width: 350px;
+    height: 5px;
+    margin-top: 25px;
+    background-color: #e0e0e0;
+    border-radius: 50px;
+    position: relative;
+    z-index: -1;
+}
+
+#progresso{
+    width: 0%;
+    height: 5px;
+    margin-top: 25px;
+    background-image: linear-gradient(to right, rgb(66, 19, 186)60%, rgb(207, 58, 226));
+    border-radius: 50px;
+    z-index: -1;
+    position: absolute;
+    top: -25px;
+}

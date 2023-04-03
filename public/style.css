@@ -1,0 +1,57 @@
+body{
+    background-color: antiquewhite;
+    position: relative;
+    font-size: 1.5em;
+
+}
+.plus{
+    position: absolute;
+    left:  24%;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: solid 1px blue;
+    background-color: cyan;
+}
+
+.minus{
+    position: absolute;
+    left:  27%;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: solid 1px blue;
+    background-color: coral;
+    color:black
+
+}
+
+.cadeiras {
+    margin: 20px 0;
+}
+.activePlus{
+    background-color: gray;
+}
+.activeMinus{
+    background-color: gray;
+
+
+}
+
+#barra{
+    background-color: #e0e0e0;
+    max-width: 100%;
+    width: 350px;
+    height: 5px;
+    margin-left: 5px;
+    border-radius: 50px;
+}
+
+#progresso{
+    background-color: violet;
+    width: 0%;
+    height: 5px;
+    margin-left: 5px;
+    border-radius: 50px;
+}
+
