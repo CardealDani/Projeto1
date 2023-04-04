@@ -1,29 +1,35 @@
 body{
     background-color: antiquewhite;
     position: relative;
-    font-size: 1.5em;
+    font-size: 1.2em;
 
+}
+
+li{
+    list-style: none;
 }
 .plus{
     position: absolute;
-    left:  24%;
+    left:  500px;
     width: 30px;
     height: 30px;
     border-radius: 100%;
     border: solid 1px blue;
     background-color: cyan;
+    cursor: pointer;
 }
+
 
 .minus{
     position: absolute;
-    left:  27%;
+    left:  550px;
     width: 30px;
     height: 30px;
     border-radius: 100%;
     border: solid 1px blue;
     background-color: coral;
-    color:black
-
+    color:black;
+    cursor: pointer;
 }
 
 .cadeiras {
@@ -34,24 +40,65 @@ body{
 }
 .activeMinus{
     background-color: gray;
-
-
 }
 
 #barra{
     background-color: #e0e0e0;
     max-width: 100%;
-    width: 350px;
-    height: 5px;
-    margin-left: 5px;
+    width: 90%;
+    height: 10px;
+    margin-left: 4%;
     border-radius: 50px;
+    position: relative;
+    top: 20vh;
 }
 
 #progresso{
     background-color: violet;
     width: 0%;
-    height: 5px;
+    height: 10px;
     margin-left: 5px;
     border-radius: 50px;
+    position: absolute;
+    left: -5px;
 }
 
+.obrigatorias{
+   background-color: hwb(0 17% 35%);
+   padding: 15px;
+   border-radius: 30px;
+   opacity: 0.95;
+}
+
+h1{
+    cursor: pointer;
+}
+
+.obrigatorias:hover{
+    opacity: 1;
+}
+
+
+#semestre1, #semestre2, #semestre3{
+   display: none;
+}
+.obrigatorias.activeObrigatorias #semestre1{ 
+    display: block;
+    background-color: hsla(185, 79%, 44%, 0.79);
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.obrigatorias.activeObrigatorias #semestre2{ 
+    display: block;
+    background-color: hsla(185, 79%, 44%, 0.79);
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.obrigatorias.activeObrigatorias #semestre3{ 
+    display: block;
+    background-color: hsla(185, 79%, 44%, 0.79);
+    border-radius: 30px;
+    padding: 5px;
+}
