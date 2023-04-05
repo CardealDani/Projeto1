@@ -19,12 +19,13 @@ app.add_middleware(
 
 
 def semestre1():
-    primeiro_semestre = sum(banco.s1,[])
-    segundo_semestre = sum(banco.s2,[])
-    terceiro_semestre = sum(banco.s3,[])
+   
+    s1 = banco.excel.get(f'B3:C{banco.len_semestre1}')
+    s2 = banco.excel.get(f'E3:F{banco.len_semestre2}')
+    s3 = banco.excel.get(f'H3:I{banco.len_semestre3}')
 
 
-    return (banco.s1,banco.s2,banco.s3)
+    return (s1,s2,s3)
     
 
 

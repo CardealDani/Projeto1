@@ -1,5 +1,5 @@
 const cadeira=[
-    [['Programação I','64'],
+    [['Programação I'],
         ['Autoração Multimídia I','64'],
         ['História do Design','64'],
   
@@ -24,3 +24,10 @@ for(i in cadeira){
     }
     console.log('')
 }
+
+lista = [ 
+    ['a',0],
+    ['b',1],
+    ['c',2]
+]
+const [label,value]  = item 

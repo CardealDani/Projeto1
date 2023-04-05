@@ -8,58 +8,61 @@ async function cadeiras() {
 
  
     const total = 2880
+    let horas = 0 // Declare horas variable outside the loop
+    let progresso = 0
     console.log(cadeira)
     for (i in cadeira) {
-        console.log(`Semestre ${parseInt(i) + 1}`)
-        for (j in cadeira[i]) {
-            console.log(cadeira[i][j][0])
-            let horas = parseInt(cadeira[i][j][1])
-            console.log(cadeira[i][j][1])
-            const item = document.createElement('li')
-            const bt = document.createElement('BUTTON')
-            const bt2 = document.createElement('BUTTON')
-            var lbl = document.createTextNode("+");
-            var lbl2 = document.createTextNode("-")
-            bt.appendChild(lbl);
-            bt2.appendChild(lbl2)
-            item.innerText = cadeira[i][j][0]
-            semestres[i].appendChild(item).appendChild(bt)
-            semestres[i].appendChild(item).appendChild(bt2)
-            item.classList.add('cadeiras')
-            bt.classList.add('plus')
-            bt2.classList.add('minus')
-            bt2.classList.add('activePlus')
-            const progresso = document.getElementById('progresso')
+      console.log(`Semestre ${parseInt(i) + 1}`)
+      for (j in cadeira[i]) {
+        console.log(cadeira[i][j][0])
+        horas = parseInt(cadeira[i][j][1]) // Add parsed value to horas
+        const item = document.createElement('li')
+        const bt = document.createElement('BUTTON')
+        const bt2 = document.createElement('BUTTON')
+        var lbl = document.createTextNode('+')
+        var lbl2 = document.createTextNode('-')
+        bt.appendChild(lbl)
+        bt2.appendChild(lbl2)
+        
+        item.innerText = `${cadeira[i][j][0]}  Horas`
+        semestres[i].appendChild(item).appendChild(bt)
+        semestres[i].appendChild(item).appendChild(bt2)
+        item.classList.add('cadeiras')
+        bt.classList.add('plus')
+        bt2.classList.add('minus')
+        bt2.classList.add('activePlus')
+        const barra = document.getElementById('progresso')
 
-            bt.addEventListener('click', (event) => {
-                event.stopPropagation()
-                horas+=horas
-                console.log(horas)
-                bt.setAttribute('disabled', true)
-                bt.nextElementSibling.removeAttribute('disabled')
-                bt.classList.add('activeMinus')
-                bt2.classList.remove('activePlus')
-                progresso.style.width = (horas / total) * 100 + '%'
-                
-               
-            })
-            bt2.setAttribute('disabled', true)
-            bt2.addEventListener('click', (event) => {
-                event.stopPropagation()
-                horas-=horas
+        bt.addEventListener('click', (event) => {
+          event.stopPropagation()
+          console.log(horas)
+          progresso += horas // Add parsed value to horas
+          console.log(`Adicionado ${horas}`)
+          bt.setAttribute('disabled', true)
+          bt.nextElementSibling.removeAttribute('disabled')
+          bt.classList.add('activeMinus')
+          bt2.classList.remove('activePlus')
+          barra.style.width = (progresso / total) * 100 + '%'
+        })
+        bt2.setAttribute('disabled', true)  
+        bt2.addEventListener('click', (event) => {
+          event.stopPropagation()
+          console.log(horas)
+          progresso -= parseInt(horas) // Subtract parsed value from horas
+          if (progresso < 0) progresso = 0
+          console.log(`Subtraido ${horas}`)
 
-                if (horas < 0) horas = 0
-                console.log(horas)
-                bt2.setAttribute('disabled', true)
-                bt2.previousElementSibling.removeAttribute('disabled')
-                bt2.classList.add('activePlus')
-                bt.classList.remove('activeMinus')
-                progresso.style.width = (horas / total) * 100 + '%'
-            })
-           
-        }
+          bt2.setAttribute('disabled', true)
+          bt2.previousElementSibling.removeAttribute('disabled')
+          bt2.classList.add('activePlus')
+          bt.classList.remove('activeMinus')
+          barra.style.width = (progresso / total) * 100 + '%'
+        })
+
+        console.log(`esse codigo ta rodando antes dos botoes ${horas}`)
+      }
     }
-
+  
     const obrigatorias = document.getElementById('obrigatorias')
     const semestresObrigatorias = document.querySelectorAll('.semestres')
 
