@@ -33,36 +33,49 @@ async function cadeiras() {
                 event.stopPropagation()
                 x++
                 console.log(x)
-                bt.setAttribute('disabled', null)
+                bt.setAttribute('disabled', true)
                 bt.nextElementSibling.removeAttribute('disabled')
                 bt.classList.add('activeMinus')
                 bt2.classList.remove('activePlus')
                 progresso.style.width = (x / total) * 100 + '%'
+                
+               
             })
+            bt2.setAttribute('disabled', true)
             bt2.addEventListener('click', (event) => {
                 event.stopPropagation()
                 x--
                 if (x < 0) x = 0
                 console.log(x)
-                bt2.setAttribute('disabled', null)
+                bt2.setAttribute('disabled', true)
                 bt2.previousElementSibling.removeAttribute('disabled')
                 bt2.classList.add('activePlus')
                 bt.classList.remove('activeMinus')
                 progresso.style.width = (x / total) * 100 + '%'
             })
+           
         }
     }
-    const obrigatorias = document.querySelectorAll('.obrigatorias')
 
-    obrigatorias.forEach(e => {
-        e.addEventListener('click', () => {
+    const obrigatorias = document.getElementById('obrigatorias')
+    const semestresObrigatorias = document.querySelectorAll('.semestres')
+
+
+    obrigatorias.addEventListener('click',()=>{
+        obrigatorias.classList.toggle('active')
+    })
+    semestres.forEach(e=>{
+        e.addEventListener('click',event=>{
+            event.stopPropagation()
+        })
+    })
+    semestresObrigatorias.forEach(e => {
+        e.addEventListener('click', (event) => {
+            event.stopPropagation()
             e.classList.toggle('activeObrigatorias')
         })
     })
 }
-
-
-
 
 function app() {
     console.log('App iniciado!')

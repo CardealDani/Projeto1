@@ -4,15 +4,26 @@ body{
     font-size: 1.2em;
 
 }
-.obrigatorias{
+#obrigatorias{
     background-color: hwb(0 17% 35%);
     padding: 15px;
     border-radius: 30px;
     opacity: 0.95;
+}
+.semestres{
+    background-color: hwb(0 17% 35%);
+    padding: 15px;
+    border-radius: 30px;
+    opacity: 0.95;
+    display: none;
  }
  
-.obrigatorias:hover{
+.semestres:hover{
     opacity: 1;
+ }
+
+ #obrigatorias.active .semestres{
+    display: block;
  }
 
 h1{
@@ -78,27 +89,24 @@ li{
     left: -5px;
 }
 
-
-
-
 #semestre1, #semestre2, #semestre3{
    display: none;
 }
-.obrigatorias.activeObrigatorias #semestre1{ 
+.semestres.activeObrigatorias #semestre1{ 
     display: block;
     background-color: hsla(185, 79%, 44%, 0.79);
     border-radius: 30px;
     padding: 5px;
 }
 
-.obrigatorias.activeObrigatorias #semestre2{ 
+.semestres.activeObrigatorias #semestre2{ 
     display: block;
     background-color: hsla(185, 79%, 44%, 0.79);
     border-radius: 30px;
     padding: 5px;
 }
 
-.obrigatorias.activeObrigatorias #semestre3{ 
+.semestres.activeObrigatorias #semestre3{ 
     display: block;
     background-color: hsla(185, 79%, 44%, 0.79);
     border-radius: 30px;

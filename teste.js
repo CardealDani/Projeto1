@@ -1,40 +1,27 @@
-const cadeira=[
+const cadeisra=[a
     [
         'Programação I',
-        'Autoração Multimídia I',
+        'Autoração Multimídia I',sad
         'História do Design',
-        'Desenho I',
+        'Desenho I',sa
         'ISMD'
-    ],
-    [
+    ],dfhd
+    [ gd
         'Programação II',
-        'Comunicação Visual I',
-        'MAMI',
-        'Narrativas Multimídia I',
-        'Cognautas',
-        'Opa'
-    ],
-    [
-        'Projeto I',
-        'Autoração Multimídia II',
-        'Cibercultura',
-        'IHC',
-        'DIG',
-        'opa1',
-        'opa2'
-    ]
-]
-
-for(i in cadeira){
-    console.log(`Semestre ${parseInt(i) + 1}`)
-    for(j in cadeira[i]){
-        console.log(cadeira[i][j])
-    }
-    console.log('')
-}
+        'Comunicfg ação Visual I',
+        'MAMI',saddsdg
+        'Narratisdvas Multimídia I',
+    asd    'Opa'gsg
+    ],fg saddf atobf AudioBufferSourceNodefd a
+    [sd'IHC',dsadasgsgsdd
+    ]dasdasd dfgg
+DocumentFragmentdf
+    consoleq.log(`Semsdfdasfesdsgtfae ${dparseInt(i) + fw 1}`)
+    fgdsor(j in cadeirgdfaa[isasd]){ df
+       gconsole.logg(dcfgddeira[i][j])
+    } dfdsgf 
+sada sada s
 
 
-
-
-
+dq
 

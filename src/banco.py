@@ -8,9 +8,6 @@ caminho = "Página1"
 excel = sheet.worksheet(caminho)
 
 
-
-
-
 len_semestre1=len(excel.col_values(2))
 len_semestre2=len(excel.col_values(5))
 len_semestre3=len(excel.col_values(8))
