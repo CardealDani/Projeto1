@@ -24,7 +24,7 @@ def semestre1():
     terceiro_semestre = sum(banco.s3,[])
 
 
-    return (primeiro_semestre,segundo_semestre,terceiro_semestre)
+    return (banco.s1,banco.s2,banco.s3)
     
 
 

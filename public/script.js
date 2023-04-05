@@ -6,13 +6,15 @@ async function cadeiras() {
     const semestre3 = document.getElementById('semestre3')
     const semestres = [semestre1, semestre2, semestre3]
 
-    let x = 0
-    const total = 18
+ 
+    const total = 2880
     console.log(cadeira)
     for (i in cadeira) {
         console.log(`Semestre ${parseInt(i) + 1}`)
         for (j in cadeira[i]) {
-            console.log(cadeira[i][j])
+            console.log(cadeira[i][j][0])
+            let horas = parseInt(cadeira[i][j][1])
+            console.log(cadeira[i][j][1])
             const item = document.createElement('li')
             const bt = document.createElement('BUTTON')
             const bt2 = document.createElement('BUTTON')
@@ -20,7 +22,7 @@ async function cadeiras() {
             var lbl2 = document.createTextNode("-")
             bt.appendChild(lbl);
             bt2.appendChild(lbl2)
-            item.innerText = cadeira[i][j]
+            item.innerText = cadeira[i][j][0]
             semestres[i].appendChild(item).appendChild(bt)
             semestres[i].appendChild(item).appendChild(bt2)
             item.classList.add('cadeiras')
@@ -31,27 +33,28 @@ async function cadeiras() {
 
             bt.addEventListener('click', (event) => {
                 event.stopPropagation()
-                x++
-                console.log(x)
+                horas+=horas
+                console.log(horas)
                 bt.setAttribute('disabled', true)
                 bt.nextElementSibling.removeAttribute('disabled')
                 bt.classList.add('activeMinus')
                 bt2.classList.remove('activePlus')
-                progresso.style.width = (x / total) * 100 + '%'
+                progresso.style.width = (horas / total) * 100 + '%'
                 
                
             })
             bt2.setAttribute('disabled', true)
             bt2.addEventListener('click', (event) => {
                 event.stopPropagation()
-                x--
-                if (x < 0) x = 0
-                console.log(x)
+                horas-=horas
+
+                if (horas < 0) horas = 0
+                console.log(horas)
                 bt2.setAttribute('disabled', true)
                 bt2.previousElementSibling.removeAttribute('disabled')
                 bt2.classList.add('activePlus')
                 bt.classList.remove('activeMinus')
-                progresso.style.width = (x / total) * 100 + '%'
+                progresso.style.width = (horas / total) * 100 + '%'
             })
            
         }
