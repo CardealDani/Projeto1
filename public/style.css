@@ -4,6 +4,21 @@ body{
     font-size: 1.2em;
 
 }
+.obrigatorias{
+    background-color: hwb(0 17% 35%);
+    padding: 15px;
+    border-radius: 30px;
+    opacity: 0.95;
+ }
+ 
+.obrigatorias:hover{
+    opacity: 1;
+ }
+
+h1{
+    cursor: pointer;
+ }
+ 
 
 li{
     list-style: none;
@@ -63,20 +78,7 @@ li{
     left: -5px;
 }
 
-.obrigatorias{
-   background-color: hwb(0 17% 35%);
-   padding: 15px;
-   border-radius: 30px;
-   opacity: 0.95;
-}
 
-h1{
-    cursor: pointer;
-}
-
-.obrigatorias:hover{
-    opacity: 1;
-}
 
 
 #semestre1, #semestre2, #semestre3{
