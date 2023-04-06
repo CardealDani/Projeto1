@@ -9,6 +9,7 @@ body{
     padding: 15px;
     border-radius: 30px;
     opacity: 0.95;
+
 }
 .semestres{
     background-color: hwb(0 17% 35%);
@@ -16,6 +17,8 @@ body{
     border-radius: 30px;
     opacity: 0.95;
     display: none;
+    animation: animacao 1s forwards;
+
  }
  
 .semestres:hover{
@@ -91,19 +94,23 @@ li{
 
 #semestre1, #semestre2, #semestre3{
    display: none;
+   
 }
 .semestres.activeObrigatorias #semestre1{ 
     display: block;
     background-color: hsla(185, 79%, 44%, 0.79);
     border-radius: 30px;
     padding: 5px;
+    animation: animacao 1s forwards;
 }
+
 
 .semestres.activeObrigatorias #semestre2{ 
     display: block;
     background-color: hsla(185, 79%, 44%, 0.79);
     border-radius: 30px;
     padding: 5px;
+    animation: animacao 1s forwards;
 }
 
 .semestres.activeObrigatorias #semestre3{ 
@@ -111,4 +118,21 @@ li{
     background-color: hsla(185, 79%, 44%, 0.79);
     border-radius: 30px;
     padding: 5px;
+    animation: animacao 1s forwards;
+
+}
+@keyframes animacao {
+    from{
+        opacity: 0;
+        max-height: 0;
+    }
+    to{
+        opacity: 1;
+        max-height: 100%;
+    }
+}
+
+#finalizar{
+    padding: 5px;
+    margin: 30px;
 }
