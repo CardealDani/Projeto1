@@ -5,7 +5,12 @@ async function cadeiras() {
     const semestre1 = document.getElementById('semestre1')
     const semestre2 = document.getElementById('semestre2')
     const semestre3 = document.getElementById('semestre3')
-    const semestres = [semestre1, semestre2, semestre3]
+    const semestre4 = document.getElementById('semestre4')
+    const semestre6 = document.getElementById('semestre6')
+    const semestre7 = document.getElementById('semestre7')
+    const semestre8 = document.getElementById('semestre8')
+
+    const semestres = [semestre1, semestre2, semestre3,semestre4,semestre6,semestre7,semestre8]
     const finalizar = document.getElementById('finalizar')
     const teste = document.getElementById('teste')
 

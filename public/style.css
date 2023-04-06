@@ -92,7 +92,7 @@ li{
     left: -5px;
 }
 
-#semestre1, #semestre2, #semestre3{
+#semestre1, #semestre2, #semestre3,#semestre4,#semestre6,#semestre7,#semestre8{
    display: none;
    
 }
@@ -119,8 +119,41 @@ li{
     border-radius: 30px;
     padding: 5px;
     animation: animacao 1s forwards;
-
 }
+
+.semestres.activeObrigatorias #semestre4{ 
+    display: block;
+    background-color: hsla(185, 79%, 44%, 0.79);
+    border-radius: 30px;
+    padding: 5px;
+    animation: animacao 1s forwards;
+}
+
+.semestres.activeObrigatorias #semestre6{ 
+    display: block;
+    background-color: hsla(185, 79%, 44%, 0.79);
+    border-radius: 30px;
+    padding: 5px;
+    animation: animacao 1s forwards;
+}
+
+.semestres.activeObrigatorias #semestre7{ 
+    display: block;
+    background-color: hsla(185, 79%, 44%, 0.79);
+    border-radius: 30px;
+    padding: 5px;
+    animation: animacao 1s forwards;
+}
+
+.semestres.activeObrigatorias #semestre8{ 
+    display: block;
+    background-color: hsla(185, 79%, 44%, 0.79);
+    border-radius: 30px;
+    padding: 5px;
+    animation: animacao 1s forwards;
+}
+
+
 @keyframes animacao {
     from{
         opacity: 0;
