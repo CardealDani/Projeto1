@@ -18,7 +18,7 @@ app.add_middleware(
 @app.get('/')
 
 
-def semestre1():
+def obrigatorias():
    
     s1 = banco.excel.get(f'B3:C{banco.len_semestre1}')
     s2 = banco.excel.get(f'E3:F{banco.len_semestre2}')
@@ -28,9 +28,6 @@ def semestre1():
     s7 = banco.excel.get(f'Q3:R{banco.len_semestre7}')
     s8 = banco.excel.get(f'T3:U{banco.len_semestre8}')
 
-
-
     return (s1,s2,s3,s4,s6,s7,s8)
     
-
 

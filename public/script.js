@@ -1,4 +1,6 @@
 
+let disciplinas_feitas = []
+
 async function cadeiras() {
     const response = await axios.get('http://127.0.0.1:8000')
     const cadeira = response.data
@@ -12,13 +14,11 @@ async function cadeiras() {
 
     const semestres = [semestre1, semestre2, semestre3,semestre4,semestre6,semestre7,semestre8]
     const finalizar = document.getElementById('finalizar')
-    const teste = document.getElementById('teste')
 
 
     const total = 2880
     let horas = 0
     let progresso = 0
-    let disciplinas_feitas = []
     console.log(cadeira)
     for (i in cadeira) {
         console.log(`Semestre ${parseInt(i) + 1}`)
@@ -98,9 +98,14 @@ async function cadeiras() {
         })
         finalizar.addEventListener('click',()=>{
             console.log(`Cadeiras Feitas: ${disciplinas_feitas}`)
+
         })
     }
 
+    async function final(){
+            const response = await axios.get('http://127.0.0.1:8000')
+         }
+    
     function app() {
         console.log('App iniciado!')
         cadeiras()
