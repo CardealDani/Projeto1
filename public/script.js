@@ -40,40 +40,40 @@ async function cadeiras() {
             bt2.classList.add('activePlus')
             const barra = document.getElementById('progresso')
 
-            bt.addEventListener('click', (function (horas, cad,dis,prog,tot) {
+            bt.addEventListener('click', (function (horas, cad) {
                 return function (event) {
                     event.stopPropagation()
-                    prog += parseInt(horas) // Add parsed value to horas
+                    progresso += parseInt(horas) // Add parsed value to horas
                     console.log(`Adicionado ${horas}`)
-                    console.log(prog)
+                    console.log(progresso)
                     bt.setAttribute('disabled', true)
                     bt.nextElementSibling.removeAttribute('disabled')
                     bt.classList.add('activeMinus')
                     bt2.classList.remove('activePlus')
-                    barra.style.width = (prog / tot) * 100 + '%'
-                    dis.push(cad)
-                    console.log(dis)
+                    barra.style.width = (progresso / total) * 100 + '%'
+                    disciplinas_feitas.push(cad)
+                    console.log(disciplinas_feitas)
 
                 }
 
-            })(horas, cadeira[i][j][0],disciplinas_feitas,progresso,total))
+            })(horas, cadeira[i][j][0]))
 
-            bt2.addEventListener('click', (function (horas, cad,dis,prog,tot) {
+            bt2.addEventListener('click', (function (horas, cad) {
                 return function (event) {
                     event.stopPropagation()
-                    prog -= parseInt(horas) // Subtract parsed value from horas
-                    if (prog < 0) prog = 0
+                    progresso -= parseInt(horas) // Subtract parsed value from horas
+                    if (progresso < 0) progresso = 0
                     console.log(`Subtraido ${horas}`)
-                    console.log(prog)
+                    console.log(progresso)
                     bt2.setAttribute('disabled', true)
                     bt2.previousElementSibling.removeAttribute('disabled')
                     bt2.classList.add('activePlus')
                     bt.classList.remove('activeMinus')
-                    barra.style.width = (prog / tot) * 100 + '%'
-                    dis = dis.filter(disciplina => disciplina !== cad); // remove o nome da cadeira do array cadeirasSelecionadas)
-                    console.log(dis)
+                    barra.style.width = (progresso / total) * 100 + '%'
+                    disciplinas_feitas = disciplinas_feitas.filter(disciplina => disciplina !== cad); // remove o nome da cadeira do array cadeirasSelecionadas)
+                    console.log(disciplinas_feitas)
                 }
-            })(horas, cadeira[i][j][0],disciplinas_feitas,progresso,total))
+            })(horas, cadeira[i][j][0]))
         }
     }
 
