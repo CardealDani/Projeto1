@@ -1,7 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import List
 import banco
 
+class Cadeira(BaseModel):
+    disciplina:list
+
+
+data:List[Cadeira] = []
 
 app = FastAPI()
 
@@ -15,6 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 
 )
+
 
 
 @app.get('/obrigatorias')
@@ -33,9 +41,11 @@ def obrigatorias():
 
 @app.get('/eletivas')
 def finalizar():
-
+    
     s_e_4 = banco.excel_eletivas.get(f'B3:C{banco.len_semestre4_eletivas}')
     s_e_5 = banco.excel_eletivas.get(f'E3:F{banco.len_semestre5_eletivas}')
-    return (s_e_4, s_e_5)
+    return (data)
 
-
+@app.post('/obrigatorias')
+def postarObrigatorias(cadeira:Cadeira):
+    data.append(cadeira)

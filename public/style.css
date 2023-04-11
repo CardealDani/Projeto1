@@ -77,9 +77,10 @@ li{
     width: 90%;
     height: 10px;
     margin-left: 4%;
+    margin-bottom: 10px;
     border-radius: 50px;
     position: relative;
-    top: 20vh;
+    top: 0;
 }
 
 #progresso{
@@ -173,7 +174,7 @@ li{
     }
 }
 
-#finalizar{
+#continuar{
     padding: 5px;
     margin: 30px;
 }
