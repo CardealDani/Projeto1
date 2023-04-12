@@ -1,11 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from pydantic import BaseModel
 from typing import List
 import banco
 
+
 class Cadeira(BaseModel):
     disciplina:list
+
 
 
 data:List[Cadeira] = []
@@ -45,6 +48,7 @@ def finalizar():
     s_e_4 = banco.excel_eletivas.get(f'B3:C{banco.len_semestre4_eletivas}')
     s_e_5 = banco.excel_eletivas.get(f'E3:F{banco.len_semestre5_eletivas}')
     return (data)
+
 
 @app.post('/obrigatorias')
 def postarObrigatorias(cadeira:Cadeira):

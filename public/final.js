@@ -1,3 +1,4 @@
+
 let disciplinas_feitas = []
 const total = 2880
 let horas = 0
