@@ -99,7 +99,10 @@ async function cadeiras() {
     })
     const continuar = document.getElementById('continuar')
     continuar.addEventListener('click',async()=>{
-        await axios.post('http://127.0.0.1:8000/obrigatorias',{disciplina:disciplinas_feitas})
+        await axios.post('http://127.0.0.1:8000/obrigatorias',{
+            disciplina:disciplinas_feitas, 
+            prog: progresso})
+        
     })
 
 }
