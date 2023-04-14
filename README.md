@@ -1,18 +1,23 @@
-👀 O QUE É?
-Este é um protótipo para o Projeto Integrado I do Curso de Sistemas e Mídias Digitais da UFC! O protótipo é baseado em uma aplicação interativa na qual o aluno seleciona as cadeiras que já cursou no curso de SMD e, no final, recebe um feedback mostrando se pode ou não se formar.
+# 👀O QUE É?
+ 
+Este é um protótipo para o Projeto da Cadeira de Projeto Integrado I do Curso de Sistemas e Mídias Digitais da UFC!
+O protótipo se baseia em uma aplicação interativa, que faz com que o aluno que utilizar selecione as cadeiras que ja cursou no curso de SMD e, no final, ele retorna um feedback mostrando se ele pode ou não se formar
 
-⚙ CONFIGURAÇÕES
-Para utilizar o código, é necessário ter os seguintes elementos instalados:
+# ⚙ CONFIGURAÇÕES
+Primeiro, quem utilizar o código, precisa ter esses elementos instalados:
 
-Python 3: Instale o Python 3 na sua máquina. Você pode fazer o download pelo link https://www.python.org/downloads/ ou pela extensão do VS Code.
-FastAPI: Dentro do VS Code, instale a biblioteca FastAPI no terminal com o seguinte código: pip install fastapi[all].
-UVICORN: O UVICORN geralmente já vem junto com o FastAPI, mas se não estiver instalado, instale-o no terminal com o seguinte código: pip install uvicorn.
-Gspread: Gspread é a biblioteca do Python para leitura de tabelas do Google Sheets. Instale-a no terminal com o seguinte código: pip install gspread.
-Live Server: Para abrir a página HTML, recomendamos usar a extensão Live Server.
-🛠️ COMO RODAR?
-Para rodar o código, ajuste todas as configurações necessárias e siga os passos abaixo:
+- `PYTHON 3`: Instalar o Python 3 na sua máquina.(Pode ser a extensão do VS Code ou pelo link: https://www.python.org/downloads/)
+- `FASTAPI`: Dentro do VS Code, instalar a biblioteca FastApi no terminal com o seguinte código: ```pip install fastApi[all]```
+- `UVICORN`: Geralmente ela vem dentro do FastApi, porém, tem casos que não. Basta instalar no terminal assim: ```pip install uvicorn```
+- `GSPREAD`: Gspread é a biblioteca do python para leitura de tabelas do google sheets. Instalar assim no terminal: ```pip install gspread```
+- `LIVE SERVER`: Para abrir a página HTML, recomendo usar a extesão Live Server
 
-Abra o terminal e navegue até a pasta src dentro da pasta principal com os seguintes comandos: cd projeto1-main e depois cd projeto src.
-Inicie o servidor com o Uvicorn chamando os arquivos back e app com o seguinte comando: uvicorn back:app --reload.
-Aguarde o servidor iniciar com a mensagem: INFO: Application startup complete.
-Abra o arquivo index.html, que está dentro da pasta public/, com o Live Server.
+
+# 🛠️ COMO RODAR?
+
+Para rodar o código, precisa ter todas as configurações ajustadas.
+ 1- Abra o terminal e entre na pasta src dentro da pasta principal : ```cd projeto1-main``` e depois ```cd projeto src```
+ 2- Inicie o servidor com o Uvicorn chamando o arquivo 'back' e o 'app': ```uvicorn back:app --reload```
+ 3- Espere o servidor iniciar com a mensagem : ```INFO:     Application startup complete. ```
+ 4- Abra o arquivo 'index.html', que está dentro da pasta 'public/', com o live server.
+
