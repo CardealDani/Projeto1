@@ -1,1 +1,0 @@
-web: uvicorn app.back:app --host=127.0.0.1 --port=${PORT:-5501}
