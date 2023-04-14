@@ -1,23 +1,25 @@
 
-
-let disciplinas_feitas = []
+let disciplinas_feitas = sessionStorage.getItem('disciplinas').split(",")
+let progresso = parseInt(sessionStorage.getItem('progresso'))
 const total = 2880
 let horas = 0
-let progresso = 0
+
+
+const barra = document.getElementById('progresso')
+barra.style.width = (progresso / total) * 100 + '%'
+
+
+console.log(disciplinas_feitas)
+
 
 async function cadeiras() {
-    const response = await axios.get('http://127.0.0.1:8000/obrigatorias')
-    let cadeira = response.data
-    const semestre1 = document.getElementById('semestre1')
-    const semestre2 = document.getElementById('semestre2')
-    const semestre3 = document.getElementById('semestre3')
-    const semestre4 = document.getElementById('semestre4')
-    const semestre6 = document.getElementById('semestre6')
-    const semestre7 = document.getElementById('semestre7')
-    const semestre8 = document.getElementById('semestre8')
-    const semestres = [semestre1, semestre2, semestre3, semestre4, semestre6, semestre7, semestre8]
 
-    
+    const response = await axios.get('http://127.0.0.1:8000/eletivas')
+    const cadeira = response.data
+    const semestre4 = document.getElementById('semestre4')
+    const semestre5 = document.getElementById('semestre5')
+    const semestres = [semestre4, semestre5]
+
     console.log(cadeira)
     for (let i in cadeira) {
         console.log(`Semestre ${parseInt(i) + 1}`)
@@ -39,7 +41,6 @@ async function cadeiras() {
             bt.classList.add('plus')
             bt2.classList.add('minus')
             bt2.classList.add('activePlus')
-            const barra = document.getElementById('progresso')
 
             bt.addEventListener('click', (function (horas, cad) {
                 return function (event) {
@@ -97,14 +98,15 @@ async function cadeiras() {
             e.classList.toggle('activeObrigatorias')
         })
     })
-    const continuar = document.getElementById('continuar')
-    continuar.addEventListener('click',()=>{
-        sessionStorage.setItem('progresso',progresso)
-        sessionStorage.setItem('disciplinas',disciplinas_feitas)
-        
+    const continuar = document.getElementById('final')
+    continuar.addEventListener('click', () => {
+        sessionStorage.setItem('progresso', progresso)
+        sessionStorage.setItem('disciplinas', disciplinas_feitas)
+
     })
 
 }
+
 
 
 function app() {

@@ -6,16 +6,10 @@ from typing import List
 import banco
 
 
-class Cadeira(BaseModel):
-    disciplina: list
-    prog: int
-
-
-data: List[Cadeira] = []
 
 app = FastAPI()
 
-origins = ['http://127.0.0.1:5500']
+origins = ['http://127.0.0.1:5501']
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -40,12 +34,11 @@ def obrigatorias():
 
 
 @app.get('/eletivas')
-def finalizar():
+def eletivas():
     s_e_4 = banco.excel_eletivas.get(f'B3:C{banco.len_semestre4_eletivas}')
     s_e_5 = banco.excel_eletivas.get(f'E3:F{banco.len_semestre5_eletivas}')
-    return data
+    return s_e_4,s_e_5
 
-
-@app.post('/obrigatorias')
-def postarObrigatorias(cadeira: Cadeira):
-    data.append(cadeira)
+@app.get('/final')
+def final():
+    return ('Acho que deu bom')
