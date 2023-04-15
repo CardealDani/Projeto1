@@ -19,4 +19,4 @@ Para rodar o código, precisa ter todas as configurações ajustadas.
  - 1- Abra o terminal e entre na pasta src dentro da pasta principal : ```cd projeto1-main``` e depois ```cd projeto src```
  - 2- Inicie o servidor com o Uvicorn chamando o arquivo 'back' e o 'app': ```uvicorn back:app --reload```
  - 3- Espere o servidor iniciar com a mensagem : ```INFO:     Application startup complete. ```
- - 4- Abra o arquivo 'index.html', que está dentro da pasta 'public/', com o live server.
+ - 4- Abra o arquivo 'iniciar.html', que está dentro da pasta 'public/', com o live server.
