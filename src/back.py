@@ -19,7 +19,6 @@ app.add_middleware(
 
 )
 
-
 @app.get('/obrigatorias')
 def obrigatorias():
     s1 = banco.excel_obrigatorias.get(f'B3:C{banco.len_semestre1}')

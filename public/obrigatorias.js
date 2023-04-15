@@ -54,7 +54,7 @@ async function cadeiras() {
                     barra.style.width = (progresso / total) * 100 + '%'
                     disciplinas_feitas.push(cad)
                     console.log(disciplinas_feitas)
-
+                    
                 }
 
             })(horas, cadeira[i][j][0]))
