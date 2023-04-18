@@ -17,24 +17,37 @@ async function cadeiras() {
     const semestre8 = document.getElementById('semestre8')
     const semestres = [semestre1, semestre2, semestre3, semestre4, semestre6, semestre7, semestre8]
 
-    
+
     console.log(cadeira)
     for (let i in cadeira) {
         console.log(`Semestre ${parseInt(i) + 1}`)
         for (let j in cadeira[i]) {
             console.log(cadeira[i][j][0])
             horas = parseInt(cadeira[i][j][1])
+
             const item = document.createElement('li')
             const bt = document.createElement('BUTTON')
             const bt2 = document.createElement('BUTTON')
+            const info = document.createElement('button')
+            const lb_info = document.createTextNode('!')
             var lbl = document.createTextNode('+')
             var lbl2 = document.createTextNode('-')
             bt.appendChild(lbl)
             bt2.appendChild(lbl2)
+            info.appendChild(lb_info)
+            const msg = document.createElement('p')
+
 
             item.innerText = `${cadeira[i][j][0]}`
-            semestres[i].appendChild(item).appendChild(bt)
-            semestres[i].appendChild(item).appendChild(bt2)
+            semestres[i].appendChild(item).appendChild(info).appendChild(bt)
+            semestres[i].appendChild(item).appendChild(info).appendChild(bt2)
+            info.addEventListener('click', () => {
+                console.log(cadeira[i][j][2])
+                msg.innerText = cadeira[i][j][2]
+                info.appendChild(msg)
+
+            })
+            info.classList.add('info')
             item.classList.add('cadeiras')
             bt.classList.add('plus')
             bt2.classList.add('minus')
@@ -54,7 +67,7 @@ async function cadeiras() {
                     barra.style.width = (progresso / total) * 100 + '%'
                     disciplinas_feitas.push(cad)
                     console.log(disciplinas_feitas)
-                    
+
                 }
 
             })(horas, cadeira[i][j][0]))
@@ -76,6 +89,7 @@ async function cadeiras() {
                 }
             })(horas, cadeira[i][j][0]))
         }
+
     }
 
 
@@ -98,10 +112,10 @@ async function cadeiras() {
         })
     })
     const continuar = document.getElementById('continuar')
-    continuar.addEventListener('click',()=>{
-        sessionStorage.setItem('progresso',progresso)
-        sessionStorage.setItem('disciplinas',disciplinas_feitas)
-        
+    continuar.addEventListener('click', () => {
+        sessionStorage.setItem('progresso', progresso)
+        sessionStorage.setItem('disciplinas', disciplinas_feitas)
+
     })
 
 }

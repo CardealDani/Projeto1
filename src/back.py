@@ -21,8 +21,8 @@ app.add_middleware(
 
 @app.get('/obrigatorias')
 def obrigatorias():
-    s1 = banco.excel_obrigatorias.get(f'B3:C{banco.len_semestre1}')
-    s2 = banco.excel_obrigatorias.get(f'E3:F{banco.len_semestre2}')
+    s1 = banco.excel_obrigatorias.get(f'B3:D{banco.len_semestre1}')
+    s2 = banco.excel_obrigatorias.get(f'E3:G{banco.len_semestre2}')
     s3 = banco.excel_obrigatorias.get(f'H3:I{banco.len_semestre3}')
     s4 = banco.excel_obrigatorias.get(f'K3:L{banco.len_semestre4}')
     s6 = banco.excel_obrigatorias.get(f'N3:O{banco.len_semestre6}')

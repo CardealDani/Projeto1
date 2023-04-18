@@ -60,6 +60,9 @@ li{
     color:black;
     cursor: pointer;
 }
+.info{
+    margin-left: 40px;
+}
 
 .cadeiras {
     margin: 20px 0;
