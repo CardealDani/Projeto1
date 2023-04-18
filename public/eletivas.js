@@ -9,7 +9,6 @@ const barra = document.getElementById('progresso')
 barra.style.width = (progresso / total) * 100 + '%'
 
 
-console.log(disciplinas_feitas)
 
 
 async function cadeiras() {

@@ -16,7 +16,8 @@ cadeiras.forEach(c => {
     ul.appendChild(li)
 });
 
+let credito = progresso/16
 const li = document.createElement('li')
-li.innerText = `${progresso}`
+li.innerText = `Horas: ${progresso} -- Créditos: ${credito}`
 ulHoras.appendChild(li)
 

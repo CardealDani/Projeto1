@@ -32,7 +32,7 @@ async function cadeiras() {
             const info = document.createElement('div')
             var lbl = document.createTextNode('+')
             var lbl2 = document.createTextNode('-')
-            bt.appendChild(lbl)
+            bt.appendChild(lbl)         
             bt2.appendChild(lbl2)
             info.innerText='!'
             const msg = document.createElement('p')
