@@ -8,6 +8,7 @@ let progresso = 0
 async function cadeiras() {
     const response = await axios.get('http://127.0.0.1:8000/obrigatorias')
     let cadeira = response.data
+
     const semestre1 = document.getElementById('semestre1')
     const semestre2 = document.getElementById('semestre2')
     const semestre3 = document.getElementById('semestre3')
