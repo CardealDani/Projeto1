@@ -12,9 +12,8 @@ barra.style.width = (progresso / total) * 100 + '%'
 
 
 async function cadeiras() {
+    const cadeira = JSON.parse(sessionStorage.getItem('eletivas'))
 
-    const response = await axios.get('http://127.0.0.1:8000/eletivas')
-    const cadeira = response.data
     const semestre4 = document.getElementById('semestre4')
     const semestre5 = document.getElementById('semestre5')
     const semestres = [semestre4, semestre5]

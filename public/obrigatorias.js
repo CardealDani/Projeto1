@@ -4,10 +4,15 @@ let disciplinas_feitas = []
 const total = 2880
 let horas = 0
 let progresso = 0
+fetch('http://127.0.0.1:8000/eletivas')
+.then(res => res.json()).then(data => {
+    sessionStorage.setItem('eletivas',JSON.stringify(data))
+})
+
+
 
 async function cadeiras() {
-    const response = await axios.get('http://127.0.0.1:8000/obrigatorias')
-    let cadeira = response.data
+    cadeira = JSON.parse(sessionStorage.getItem('obrigatorias'))
 
     const semestre1 = document.getElementById('semestre1')
     const semestre2 = document.getElementById('semestre2')
