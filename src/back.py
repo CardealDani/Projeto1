@@ -53,4 +53,4 @@ async def upload_pdf(file: UploadFile = File(...)):
     contents = await file.read()
     with open("document.pdf", "wb") as f:
         f.write(contents)
-    return {"message": "File uploaded successfully"}
+    return {"message": "Deu certo"}
