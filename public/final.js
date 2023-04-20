@@ -28,6 +28,10 @@ cadeiras.forEach(c => {
 });
 
 let credito = progresso / 16
+let falta_credito = 180 - credito
+let falta_hora = 2880 - progresso
+let porcentagem_horas = ((progresso*10)/288).toFixed(2)
+let porcentagem_creditos = ((credito*10)/18).toFixed(2)
 const li = document.createElement('li')
 li.innerText = `Horas: ${progresso} -- Créditos: ${credito}`
 ulHoras.appendChild(li)
@@ -43,28 +47,42 @@ function pdf() {
         doc.setFontSize(15)
         doc.setFontStyle('normal')
         doc.setFontStyle('regular')
-        doc.text(`- ${cadeiras[t]}`, 10, t * 10 + 60)
+        doc.text(`  - ${cadeiras[t]}`, 10, t * 10 + 60)
         x = t
     }
     doc.setDrawColor(0, 0, 0);
-    doc.line(0, x + 10, 210, x + 10)
+    doc.line(0, x * 10 + 70, 210, x * 10 + 70)
     doc.setFontSize(20)
     doc.setFontStyle('Gothic')
     doc.setFontStyle('bold')
-    doc.text(`Total de Horas:`, 10, x * 10 + 80)
+    doc.text(`Horas Totais:`, 10, x * 10 + 80)
+    doc.text(`Horas Feitas:`, 80, x * 10 + 80)
+    doc.text(`Saldo:`, 160, x * 10 + 80)
+
     doc.setFontSize(15)
     doc.setFontStyle('normal')
     doc.setFontStyle('regular')
-    doc.text(`- ${progresso}`, 10, x * 10 + 90)
+    doc.text(`  - 2880`, 10, x * 10 + 90)
+    doc.text(`  - ${progresso}   (${porcentagem_horas}%)`, 80, x * 10 + 90)
+    doc.text(`  - ${falta_hora}  `, 160, x * 10 + 90)
+
+    doc.line(0, x * 10 + 100, 210, x * 10 + 100)
 
     doc.setFontSize(20)
     doc.setFontStyle('Gothic')
     doc.setFontStyle('bold')
-    doc.text(`Total de Crédito:`, 10, x * 10 + 110)
+    doc.text(`Créditos Totais:`, 10, x * 10 + 110)
+    doc.text(`Créditos Feitos:`, 80, x * 10 + 110)
+    doc.text(`Saldo:`, 160, x * 10 + 110)
+
     doc.setFontSize(15)
     doc.setFontStyle('normal')
     doc.setFontStyle('regular')
-    doc.text(`- ${credito}`, 10, x * 10 + 120)
+    doc.text(`  - 180`, 10, x * 10 + 120)
+    doc.text(`  - ${credito}   (${porcentagem_creditos}%)`, 80, x * 10 + 120)
+    doc.text(`  - ${falta_credito}`, 160, x * 10 + 120)
+
+
 
     doc.save('Cadeiras.pdf')
 }
