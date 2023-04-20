@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,UploadFile,File
+
 from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel
@@ -46,7 +47,10 @@ def final():
     return ('Acho que deu bom')
 data = None
 
-@app.post('/final')
-def email(email):
-    data = email
-    return {'email:':email}
+
+@app.post("/final")
+async def upload_pdf(file: UploadFile = File(...)):
+    contents = await file.read()
+    with open("document.pdf", "wb") as f:
+        f.write(contents)
+    return {"message": "File uploaded successfully"}

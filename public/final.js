@@ -30,8 +30,8 @@ cadeiras.forEach(c => {
 let credito = progresso / 16
 let falta_credito = 180 - credito
 let falta_hora = 2880 - progresso
-let porcentagem_horas = ((progresso*10)/288).toFixed(2)
-let porcentagem_creditos = ((credito*10)/18).toFixed(2)
+let porcentagem_horas = ((progresso * 10) / 288).toFixed(2)
+let porcentagem_creditos = ((credito * 10) / 18).toFixed(2)
 const li = document.createElement('li')
 li.innerText = `Horas: ${progresso} -- Créditos: ${credito}`
 ulHoras.appendChild(li)
@@ -82,7 +82,20 @@ function pdf() {
     doc.text(`  - ${credito}   (${porcentagem_creditos}%)`, 80, x * 10 + 120)
     doc.text(`  - ${falta_credito}`, 160, x * 10 + 120)
 
-
-
     doc.save('Cadeiras.pdf')
+}
+
+function enviarPdf() {
+    const formData = new FormData();
+    formData.append("file", new Blob([doc.output('blob')], { type: 'application/pdf' }), "Cadeiras.pdf");
+
+    axios.post('http://127.0.0.1:8000/final', formData)
+
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
 }
