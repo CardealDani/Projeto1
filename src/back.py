@@ -6,7 +6,6 @@ from typing import List
 import banco
 
 
-
 app = FastAPI()
 
 origins = ['http://127.0.0.1:5501']
@@ -45,3 +44,9 @@ def eletivas():
 @app.get('/final')
 def final():
     return ('Acho que deu bom')
+data = None
+
+@app.post('/final')
+def email(email):
+    data = email
+    return {'email:':email}
