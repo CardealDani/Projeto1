@@ -53,9 +53,11 @@ def final():
 
 @app.post("/final")
 async def upload_pdf(file: UploadFile = File(...), email: str = Form(...), nome: str = Form(...)):
-    envio_de_email.enviar_email(nome.title(), email)
+
 
     contents = await file.read()
     with open("document.pdf", "wb") as f:
         f.write(contents)
+        
+    envio_de_email.enviar_email(nome.title(), email)
     return {"message": "Email Enviado"}

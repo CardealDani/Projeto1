@@ -95,7 +95,7 @@ function enviarPdf() {
     formData.append("email", email)
     formData.append("nome", nome)
     formData.append("file", new Blob([doc.output('blob')], { type: 'application/pdf' }), "Cadeiras.pdf");
-    axios.post('http://127.0.0.1:8000/final', formData, {
+     axios.post('http://127.0.0.1:8000/final', formData, {
         headers: {
             'Content-Type': 'multipart/form-data'
         }
