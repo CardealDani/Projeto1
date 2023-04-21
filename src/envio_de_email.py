@@ -72,3 +72,6 @@ def enviar_email(usuario,destino):
         server.quit()
     except Exception as er:
         print(er)
+        server.quit()
+    except Exception as er:
+        print(er)
