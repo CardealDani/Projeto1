@@ -87,18 +87,19 @@ function pdf(){
     doc.save('Cadeiras.pdf')
 
 }
-
 function enviarPdf() {
+    const email = String(document.getElementById('email').value)
+    const nome = String(document.getElementById('nome').value)
+
     const formData = new FormData();
+    formData.append("email", email)
+    formData.append("nome", nome)
     formData.append("file", new Blob([doc.output('blob')], { type: 'application/pdf' }), "Cadeiras.pdf");
-
-    axios.post('http://127.0.0.1:8000/final', formData)
-
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
+    axios.post('http://127.0.0.1:8000/final', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    alert('Email enviado com sucesso')
+    
 }

@@ -206,3 +206,30 @@ li{
     padding: 5px;
     margin: 30px;
 }
+
+#form{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    border-radius: 10px;
+}
+#form button{
+    padding: 15px;
+    background: #ff5361;
+    color: #fff;
+    font-size: 18px;
+    border:0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+#form input{
+    text-decoration: none;
+    margin-bottom: 10px;
+    width: 250px;
+    padding: 10px;
+}
