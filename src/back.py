@@ -1,13 +1,15 @@
-from fastapi import FastAPI,UploadFile,File
+from fastapi import FastAPI, UploadFile, File, Form
 
 from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel
 from typing import List
 import banco
+import envio_de_email
 
 
 app = FastAPI()
+
 
 origins = ['http://127.0.0.1:5501']
 app.add_middleware(
@@ -18,6 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 
 )
+
 
 @app.get('/obrigatorias')
 def obrigatorias():
@@ -30,7 +33,7 @@ def obrigatorias():
     s7 = banco.excel_obrigatorias.get(f'Q3:R{banco.len_semestre7}')
     s8 = banco.excel_obrigatorias.get(f'T3:U{banco.len_semestre8}')
     obrig.extend((s1, s2, s3, s4, s6, s7, s8))
-    
+
     return obrig
 
 
@@ -39,18 +42,20 @@ def eletivas():
     elet = []
     s_e_4 = banco.excel_eletivas.get(f'B3:C{banco.len_semestre4_eletivas}')
     s_e_5 = banco.excel_eletivas.get(f'E3:F{banco.len_semestre5_eletivas}')
-    elet.extend((s_e_4,s_e_5))
+    elet.extend((s_e_4, s_e_5))
     return elet
+
 
 @app.get('/final')
 def final():
     return ('Acho que deu bom')
-data = None
 
 
 @app.post("/final")
-async def upload_pdf(file: UploadFile = File(...)):
+async def upload_pdf(file: UploadFile = File(...), email: str = Form(...), nome: str = Form(...)):
+    envio_de_email.enviar_email(nome.title(), email)
+
     contents = await file.read()
     with open("document.pdf", "wb") as f:
         f.write(contents)
-    return {"message": "File uploaded successfully"}
+    return {"message": "Email Enviado"}

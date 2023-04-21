@@ -37,65 +37,69 @@ li.innerText = `Horas: ${progresso} -- Créditos: ${credito}`
 ulHoras.appendChild(li)
 
 let x = 0
-function pdf() {
-    doc.addImage(img, 'jpg', 0, 0, 210, 297)
-    doc.setFontSize(20)
-    doc.setFontStyle('Gothic')
-    doc.setFontStyle('bold')
-    doc.text(`Cadeiras feitas:`, 10, 50)
-    for (t in cadeiras) {
-        doc.setFontSize(15)
-        doc.setFontStyle('normal')
-        doc.setFontStyle('regular')
-        doc.text(`  - ${cadeiras[t]}`, 10, t * 10 + 60)
-        x = t
-    }
-    doc.setDrawColor(0, 0, 0);
-    doc.line(0, x * 10 + 70, 210, x * 10 + 70)
-    doc.setFontSize(20)
-    doc.setFontStyle('Gothic')
-    doc.setFontStyle('bold')
-    doc.text(`Horas Totais:`, 10, x * 10 + 80)
-    doc.text(`Horas Feitas:`, 80, x * 10 + 80)
-    doc.text(`Saldo:`, 160, x * 10 + 80)
 
+doc.addImage(img, 'jpg', 0, 0, 210, 297)
+doc.setFontSize(20)
+doc.setFontStyle('Gothic')
+doc.setFontStyle('bold')
+doc.text(`Cadeiras feitas:`, 10, 50)
+for (t in cadeiras) {
     doc.setFontSize(15)
     doc.setFontStyle('normal')
     doc.setFontStyle('regular')
-    doc.text(`  - 2880`, 10, x * 10 + 90)
-    doc.text(`  - ${progresso}   (${porcentagem_horas}%)`, 80, x * 10 + 90)
-    doc.text(`  - ${falta_hora}  `, 160, x * 10 + 90)
-
-    doc.line(0, x * 10 + 100, 210, x * 10 + 100)
-
-    doc.setFontSize(20)
-    doc.setFontStyle('Gothic')
-    doc.setFontStyle('bold')
-    doc.text(`Créditos Totais:`, 10, x * 10 + 110)
-    doc.text(`Créditos Feitos:`, 80, x * 10 + 110)
-    doc.text(`Saldo:`, 160, x * 10 + 110)
-
-    doc.setFontSize(15)
-    doc.setFontStyle('normal')
-    doc.setFontStyle('regular')
-    doc.text(`  - 180`, 10, x * 10 + 120)
-    doc.text(`  - ${credito}   (${porcentagem_creditos}%)`, 80, x * 10 + 120)
-    doc.text(`  - ${falta_credito}`, 160, x * 10 + 120)
-
-    doc.save('Cadeiras.pdf')
+    doc.text(`  - ${cadeiras[t]}`, 10, t * 10 + 60)
+    x = t
 }
+doc.setDrawColor(0, 0, 0);
+doc.line(0, x * 10 + 70, 210, x * 10 + 70)
+doc.setFontSize(20)
+doc.setFontStyle('Gothic')
+doc.setFontStyle('bold')
+doc.text(`Horas Totais:`, 10, x * 10 + 80)
+doc.text(`Horas Feitas:`, 80, x * 10 + 80)
+doc.text(`Saldo:`, 160, x * 10 + 80)
 
+doc.setFontSize(15)
+doc.setFontStyle('normal')
+doc.setFontStyle('regular')
+doc.text(`  - 2880`, 10, x * 10 + 90)
+doc.text(`  - ${progresso}   (${porcentagem_horas}%)`, 80, x * 10 + 90)
+doc.text(`  - ${falta_hora}  `, 160, x * 10 + 90)
+
+doc.line(0, x * 10 + 100, 210, x * 10 + 100)
+
+doc.setFontSize(20)
+doc.setFontStyle('Gothic')
+doc.setFontStyle('bold')
+doc.text(`Créditos Totais:`, 10, x * 10 + 110)
+doc.text(`Créditos Feitos:`, 80, x * 10 + 110)
+doc.text(`Saldo:`, 160, x * 10 + 110)
+
+doc.setFontSize(15)
+doc.setFontStyle('normal')
+doc.setFontStyle('regular')
+doc.text(`  - 180`, 10, x * 10 + 120)
+doc.text(`  - ${credito}   (${porcentagem_creditos}%)`, 80, x * 10 + 120)
+doc.text(`  - ${falta_credito}`, 160, x * 10 + 120)
+doc.output('Cadeiras.pdf')
+
+function pdf(){
+    doc.save('Cadeiras.pdf')
+
+}
 function enviarPdf() {
+    const email = String(document.getElementById('email').value)
+    const nome = String(document.getElementById('nome').value)
+
     const formData = new FormData();
+    formData.append("email", email)
+    formData.append("nome", nome)
     formData.append("file", new Blob([doc.output('blob')], { type: 'application/pdf' }), "Cadeiras.pdf");
-
-    axios.post('http://127.0.0.1:8000/final', formData)
-
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
+    axios.post('http://127.0.0.1:8000/final', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    alert('Email enviado com sucesso')
+    
 }
