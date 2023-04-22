@@ -1,6 +1,8 @@
 
 let disciplinas_feitas = sessionStorage.getItem('disciplinas').split(",")
 let progresso = parseInt(sessionStorage.getItem('progresso'))
+let qtd_cadeiras = sessionStorage.getItem('qtd_cadeiras')
+
 const total = 2880
 let horas = 0
 
@@ -43,7 +45,8 @@ async function cadeiras() {
             bt.addEventListener('click', (function (horas, cad) {
                 return function (event) {
                     event.stopPropagation()
-                    progresso += parseInt(horas) // Add parsed value to horas
+                    progresso += parseInt(horas)
+                    qtd_cadeiras++
                     console.log(`Adicionado ${horas}`)
                     console.log(progresso)
                     bt.setAttribute('disabled', true)
@@ -61,7 +64,8 @@ async function cadeiras() {
             bt2.addEventListener('click', (function (horas, cad) {
                 return function (event) {
                     event.stopPropagation()
-                    progresso -= parseInt(horas) // Subtract parsed value from horas
+                    progresso -= parseInt(horas)
+                    qtd_cadeiras--
                     if (progresso < 0) progresso = 0
                     console.log(`Subtraido ${horas}`)
                     console.log(progresso)
@@ -70,7 +74,7 @@ async function cadeiras() {
                     bt2.classList.add('activePlus')
                     bt.classList.remove('activeMinus')
                     barra.style.width = (progresso / total) * 100 + '%'
-                    disciplinas_feitas = disciplinas_feitas.filter(disciplina => disciplina !== cad); // remove o nome da cadeira do array cadeirasSelecionadas)
+                    disciplinas_feitas = disciplinas_feitas.filter(disciplina => disciplina !== cad);
                     console.log(disciplinas_feitas)
                 }
             })(horas, cadeira[i][j][0]))

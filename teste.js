@@ -1,6 +1,7 @@
 const cadeira=[
-    [['Programação I'],
-        ['Autoração Multimídia I','64'],
+    [
+        ['Programação I','64','Texto prog'],
+        ['Autoração Multimídia I','64','texto am1'],
         ['História do Design','64'],
   
     ],
@@ -16,18 +17,6 @@ const cadeira=[
     ]
 ]
 
-for(i in cadeira){
-    console.log(`Semestre ${parseInt(i) + 1}`)
+console.log(cadeira[0][0][2])
 
-    for(j in cadeira[i]){
-        console.log(cadeira[i][j][1])
-    }
-    console.log('')
-}
 
-lista = [ 
-    ['a',0],
-    ['b',1],
-    ['c',2]
-]
-const [label,value]  = item 

@@ -11,7 +11,7 @@ import envio_de_email
 app = FastAPI()
 
 
-origins = ['http://127.0.0.1:5501']
+origins = ['http://127.0.0.1:5502']
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
