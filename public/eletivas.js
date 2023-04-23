@@ -29,18 +29,36 @@ async function cadeiras() {
             const item = document.createElement('li')
             const bt = document.createElement('BUTTON')
             const bt2 = document.createElement('BUTTON')
+            const info = document.createElement('div')
             var lbl = document.createTextNode('+')
             var lbl2 = document.createTextNode('-')
             bt.appendChild(lbl)
             bt2.appendChild(lbl2)
+            info.innerText='!'
+            const msg = document.createElement('p')
 
             item.innerText = `${cadeira[i][j][0]}`
+            item.appendChild(info)
             semestres[i].appendChild(item).appendChild(bt)
             semestres[i].appendChild(item).appendChild(bt2)
             item.classList.add('cadeiras')
             bt.classList.add('plus')
             bt2.classList.add('minus')
             bt2.classList.add('activePlus')
+            info.addEventListener('click', () => {
+                msg.innerText = cadeira[i][j][2]
+                info.classList.toggle('info_ativo')
+                if (info.classList.contains('info_ativo')) {
+                    info.innerText=''
+                    info.appendChild(msg)
+                }
+                else {
+                    info.innerText= '!'
+                }
+
+            })
+            info.classList.add('info')
+            item.classList.add('cadeiras')
 
             bt.addEventListener('click', (function (horas, cad) {
                 return function (event) {
