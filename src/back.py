@@ -46,10 +46,9 @@ def eletivas():
 
 @app.get('/optativas')
 def optativas():
-    opt = []
-    optativa = banco.excel_optativas(f'B3:C{banco.len_optativas}')
-    opt.extend(optativa)
-    return opt
+
+    optativa = banco.excel_optativas.get(f'B3:C{banco.len_optativas}')
+    return optativa
 
 
 @app.get('/final')

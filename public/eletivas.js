@@ -1,7 +1,16 @@
+fetch('http://127.0.0.1:8000/optativas')
+.then(res => res.json()).then(data => {
+    sessionStorage.setItem('optativas',JSON.stringify(data))
+})
+
+
 
 let disciplinas_feitas = sessionStorage.getItem('disciplinas').split(",")
 let progresso = parseInt(sessionStorage.getItem('progresso'))
 let qtd_cadeiras = sessionStorage.getItem('qtd_cadeiras')
+
+
+
 
 const total = 2880
 let horas = 0
@@ -13,7 +22,7 @@ barra.style.width = (progresso / total) * 100 + '%'
 
 
 
-async function cadeiras() {
+function cadeiras() {
     const cadeira = JSON.parse(sessionStorage.getItem('eletivas'))
 
     const semestre4 = document.getElementById('semestre4')
@@ -34,7 +43,7 @@ async function cadeiras() {
             var lbl2 = document.createTextNode('-')
             bt.appendChild(lbl)
             bt2.appendChild(lbl2)
-            info.innerText='!'
+            info.innerText = '!'
             const msg = document.createElement('p')
 
             item.innerText = `${cadeira[i][j][0]}`
@@ -49,11 +58,11 @@ async function cadeiras() {
                 msg.innerText = cadeira[i][j][2]
                 info.classList.toggle('info_ativo')
                 if (info.classList.contains('info_ativo')) {
-                    info.innerText=''
+                    info.innerText = ''
                     info.appendChild(msg)
                 }
                 else {
-                    info.innerText= '!'
+                    info.innerText = '!'
                 }
 
             })
