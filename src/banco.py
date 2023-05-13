@@ -6,8 +6,10 @@ sheet = gc.open_by_key(CODE)
 
 caminho = "Obrigatórias"
 caminho_eletivas = "Eletivas"
+caminho_optativas = "Optativas"
 excel_obrigatorias = sheet.worksheet(caminho)
 excel_eletivas = sheet.worksheet(caminho_eletivas)
+excel_optativas = sheet.worksheet(caminho_optativas)
 
 len_semestre1 = len(excel_obrigatorias.col_values(2))
 len_semestre2 = len(excel_obrigatorias.col_values(5))
@@ -20,3 +22,5 @@ len_semestre8 = len(excel_obrigatorias.col_values(20))
 
 len_semestre4_eletivas = len(excel_eletivas.col_values(2))
 len_semestre5_eletivas = len(excel_eletivas.col_values(5))
+
+len_optativas = len(excel_optativas.col_values(2))

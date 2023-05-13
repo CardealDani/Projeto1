@@ -3,7 +3,6 @@ from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel
-from typing import List
 import banco
 import envio_de_email
 
@@ -44,6 +43,13 @@ def eletivas():
     s_e_5 = banco.excel_eletivas.get(f'E3:G{banco.len_semestre5_eletivas}')
     elet.extend((s_e_4, s_e_5))
     return elet
+
+@app.get('/optativas')
+def optativas():
+    opt = []
+    optativa = banco.excel_optativas(f'B3:C{banco.len_optativas}')
+    opt.extend(optativa)
+    return opt
 
 
 @app.get('/final')
