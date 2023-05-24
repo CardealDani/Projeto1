@@ -131,6 +131,8 @@ function cadeiras() {
     continuar.addEventListener('click', () => {
         sessionStorage.setItem('progresso', progresso)
         sessionStorage.setItem('disciplinas', disciplinas_feitas)
+        sessionStorage.setItem('qtd_cadeiras',qtd_cadeiras)
+
 
     })
 
