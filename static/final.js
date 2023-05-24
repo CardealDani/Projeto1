@@ -6,7 +6,7 @@ const doc = new jsPDF({
 })
 
 const img = new Image()
-img.src = '/img/timbrado.jpg'
+img.src = 'timbrado.jpg'
 
 
 
