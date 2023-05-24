@@ -39,7 +39,7 @@ li{
 }
 .plus{
     position: absolute;
-    left:  200px;
+    left:  300px;
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -51,7 +51,7 @@ li{
 
 .minus{
     position: absolute;
-    left:  250px;
+    left:  350px;
     width: 30px;
     height: 30px;
     border-radius: 100%;
