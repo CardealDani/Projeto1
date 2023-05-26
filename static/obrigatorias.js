@@ -73,7 +73,7 @@ async function cadeiras() {
                     event.stopPropagation()
                     progresso += parseInt(horas) 
                     qtd_cadeiras++
-                
+                    console.log(horas)
                     console.log(`Adicionado ${horas}`)
                     console.log(progresso)
                     bt.setAttribute('disabled', true)

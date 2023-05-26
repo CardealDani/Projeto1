@@ -10,8 +10,6 @@ let progresso = parseInt(sessionStorage.getItem('progresso'))
 let qtd_cadeiras = sessionStorage.getItem('qtd_cadeiras')
 
 
-
-
 const total = 2880
 let horas = 0
 
